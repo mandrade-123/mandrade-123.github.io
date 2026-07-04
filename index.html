@@ -1,293 +1,599 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Magda Andrade — Privacy &amp; Compliance</title>
-<meta name="description" content="Privacy compliance portfolio — CIPP/US certification journey and applied projects.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#12213a;
-    --ink-soft:#3a4a63;
-    --paper:#f6f4ee;
-    --paper-raised:#ffffff;
-    --sage:#4f6a52;
-    --sage-deep:#2f4531;
-    --amber:#b8863b;
-    --rule:#d7d1c2;
-    --rule-strong:#12213a;
-    --max-w:920px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Source Sans 3', sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:var(--sage-deep);}
-  .wrap{max-width:var(--max-w); margin:0 auto; padding:0 28px;}
-
-  /* ---------- Header / nav ---------- */
-  header.site{
-    border-bottom:1px solid var(--rule);
-    position:sticky; top:0; background:rgba(246,244,238,0.92);
-    backdrop-filter:blur(6px); z-index:10;
-  }
-  .nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 28px; max-width:var(--max-w); margin:0 auto;
-  }
-  .nav .mark{
-    font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:.06em;
-    color:var(--ink-soft); text-transform:uppercase;
-  }
-  .nav ul{list-style:none; display:flex; gap:26px; margin:0; padding:0;}
-  .nav a{text-decoration:none; color:var(--ink); font-size:14px; font-weight:600;}
-  .nav a:hover{color:var(--sage-deep);}
-
-  /* ---------- Hero ---------- */
-  .hero{padding:76px 0 56px; border-bottom:1px solid var(--rule);}
-  .docket{
-    font-family:'JetBrains Mono', monospace; font-size:12.5px; letter-spacing:.08em;
-    color:var(--amber); text-transform:uppercase; margin:0 0 18px;
-    display:flex; align-items:center; gap:10px;
-  }
-  .docket::before{content:"§"; font-size:15px;}
-  h1.name{
-    font-family:'Fraunces', serif; font-weight:500; font-size:clamp(2.4rem, 5vw, 3.6rem);
-    line-height:1.05; margin:0 0 14px; color:var(--ink);
-  }
-  .role-line{
-    font-size:1.15rem; color:var(--ink-soft); max-width:60ch; margin:0 0 28px;
-  }
-  .status-row{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:8px;}
-  .badge{
-    font-family:'JetBrains Mono', monospace; font-size:11.5px; letter-spacing:.04em;
-    padding:6px 12px; border:1px solid var(--rule-strong); border-radius:2px;
-    color:var(--ink); background:var(--paper-raised); text-transform:uppercase;
-  }
-  .badge.active{border-color:var(--sage-deep); color:var(--sage-deep); background:#eef2ec;}
-  .hero-links{margin-top:26px; display:flex; gap:20px; flex-wrap:wrap;}
-  .hero-links a{
-    text-decoration:none; font-weight:600; font-size:14.5px; color:var(--ink);
-    border-bottom:2px solid var(--amber); padding-bottom:2px;
-  }
-  .hero-links a:hover{color:var(--sage-deep); border-color:var(--sage-deep);}
-
-  /* ---------- About ---------- */
-  section.about{padding:52px 0; border-bottom:1px solid var(--rule);}
-  .eyebrow{
-    font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:.1em;
-    color:var(--ink-soft); text-transform:uppercase; margin:0 0 14px;
-  }
-  .about p{max-width:68ch; font-size:1.02rem; color:var(--ink-soft);}
-  .about p strong{color:var(--ink);}
-
-  /* ---------- Skills strip ---------- */
-  .skills{display:flex; flex-wrap:wrap; gap:9px; margin-top:22px;}
-  .skill-tag{
-    font-family:'JetBrains Mono', monospace; font-size:12px;
-    padding:5px 11px; background:var(--paper-raised); border:1px solid var(--rule);
-    border-radius:2px; color:var(--ink-soft);
-  }
-
-  /* ---------- Projects / Docket timeline ---------- */
-  section.projects{padding:56px 0 64px;}
-  .docket-list{
-    position:relative; margin-top:36px; padding-left:52px;
-  }
-  .docket-list::before{
-    content:""; position:absolute; left:19px; top:6px; bottom:6px; width:1px;
-    background:var(--rule-strong); opacity:.25;
-  }
-  .entry{position:relative; padding-bottom:40px;}
-  .entry:last-child{padding-bottom:0;}
-  .entry .seal{
-    position:absolute; left:-52px; top:0; width:38px; height:38px; border-radius:50%;
-    border:1.5px solid var(--rule-strong); background:var(--paper);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'JetBrains Mono', monospace; font-size:12px; font-weight:600; color:var(--ink);
-  }
-  .entry.done .seal{background:var(--sage-deep); border-color:var(--sage-deep); color:#fff;}
-  .entry.exam .seal{border-style:dashed; font-size:16px;}
-  .entry-head{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:6px;}
-  .entry-head h3{
-    font-family:'Fraunces', serif; font-weight:500; font-size:1.28rem; margin:0; color:var(--ink);
-  }
-  .domain-tag{
-    font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.04em;
-    color:var(--amber); text-transform:uppercase;
-  }
-  .entry p.desc{margin:6px 0 10px; color:var(--ink-soft); max-width:64ch;}
-  .entry .artifact-link{
-    display:inline-block; font-size:13.5px; font-weight:600; text-decoration:none;
-    color:var(--sage-deep); border-bottom:1px solid var(--sage-deep);
-  }
-  .entry .artifact-link:hover{color:var(--amber); border-color:var(--amber);}
-
-  /* ---------- Footer ---------- */
-  footer{
-    border-top:1px solid var(--rule); padding:34px 0 46px;
-  }
-  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;}
-  footer p{margin:0; font-size:13px; color:var(--ink-soft);}
-  footer .foot-links{display:flex; gap:18px;}
-  footer a{font-size:13px; font-weight:600; text-decoration:none; color:var(--ink);}
-  footer a:hover{color:var(--sage-deep);}
-
-  @media (max-width:640px){
-    .nav ul{gap:16px;}
-    .docket-list{padding-left:40px;}
-    .entry .seal{left:-40px; width:30px; height:30px; font-size:10.5px;}
-  }
-</style>
-</head>
-<body>
-
-<header class="site">
-  <div class="nav">
-    <span class="mark">Magda Andrade / Privacy &amp; Compliance</span>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="wrap">
-    <p class="docket">Case File No. 2026-001 — Career Upgrade Record</p>
-    <h1 class="name">Magda Andrade</h1>
-    <p class="role-line">Aspiring privacy &amp; compliance professional, building applied expertise in U.S. privacy law through the CIPP/US certification.</p>
-    <div class="status-row">
-      <span class="badge active">CIPP/US — In Progress</span>
-      <span class="badge">6-Week Study Track</span>
-    </div>
-    <div class="hero-links">
-      <a href="#projects">View the docket ↓</a>
-      <a href="mailto:magda.k.andrade@outlook.com">Email me</a>
-      <a href="https://www.linkedin.com/in/mandrade123/" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-  </div>
-</section>
-
-<section class="about" id="about">
-  <div class="wrap">
-    <p class="eyebrow">About</p>
-    <p><strong>I'm deepening my expertise in privacy and compliance</strong> as the next step in my career. I have 15+ years of experience in international technology policy and regulatory affairs advising governments and industry on the EU's landmark digital regulations — the Digital Services Act (DSA), Digital Markets Act (DMA), AI Act, and GDPR. Rather than just studying for the CIPP/US exam, I'm running a 6-week accelerated study plan and building a working portfolio as I go. Every domain of the exam paired with a practical artifact: comparison matrices, mock compliance checklists, policy templates, and process diagrams that mirror the kind of work a privacy analyst or compliance associate produces day to day.</p>
-    <p>This site is that portfolio. Each entry below corresponds to one week of study and one applied deliverable.</p>
-    <div class="skills">
-      <span class="skill-tag">U.S. Federal Privacy Law</span>
-      <span class="skill-tag">State Privacy Statutes</span>
-      <span class="skill-tag">HIPAA</span>
-      <span class="skill-tag">GLBA / FCRA</span>
-      <span class="skill-tag">CCPA / CPRA</span>
-      <span class="skill-tag">Policy Drafting</span>
-      <span class="skill-tag">Compliance Documentation</span>
-      <span class="skill-tag">Regulatory Research</span>
-    </div>
-  </div>
-</section>
-
-<section class="projects" id="projects">
-  <div class="wrap">
-    <p class="eyebrow">Weekly Projects</p>
-    <h2 style="font-family:'Fraunces',serif; font-weight:500; font-size:1.9rem; margin:8px 0 0;">Six weeks, six applied artifacts — then the exam</h2>
-
-    <div class="docket-list">
-
-      <div class="entry done">
-        <div class="seal">01</div>
-        <div class="entry-head">
-          <h3>U.S. Privacy Regulatory Landscape</h3>
-          <span class="domain-tag">Domain I + II · Jul 4–10</span>
-        </div>
-        <p class="desc">A one-page map of the fragmented U.S. privacy enforcement system, plus a comparison matrix of federal sectoral laws (GLBA, FCRA, COPPA, CAN-SPAM) — scope, covered entities, obligations, and enforcement.</p>
-        <a class="artifact-link" href="#" target="_blank" rel="noopener">View artifact →</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magda Andrade — Privacy &amp; Compliance</title>
+    <meta
+      name="description"
+      content="Privacy compliance portfolio — CIPP/US certification journey and applied projects."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #12213a;
+        --ink-soft: #3a4a63;
+        --paper: #f6f4ee;
+        --paper-raised: #ffffff;
+        --sage: #4f6a52;
+        --sage-deep: #2f4531;
+        --amber: #b8863b;
+        --rule: #d7d1c2;
+        --rule-strong: #12213a;
+        --max-w: 920px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Source Sans 3", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: var(--sage-deep);
+      }
+      .wrap {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 28px;
+      } /* ---------- Header / nav ---------- */
+      header.site {
+        border-bottom: 1px solid var(--rule);
+        position: sticky;
+        top: 0;
+        background: rgba(246, 244, 238, 0.92);
+        backdrop-filter: blur(6px);
+        z-index: 10;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 28px;
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+      .nav .mark {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        letter-spacing: 0.06em;
+        color: var(--ink-soft);
+        text-transform: uppercase;
+      }
+      .nav ul {
+        list-style: none;
+        display: flex;
+        gap: 26px;
+        margin: 0;
+        padding: 0;
+      }
+      .nav a {
+        text-decoration: none;
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .nav a:hover {
+        color: var(--sage-deep);
+      } /* ---------- Hero ---------- */
+      .hero {
+        padding: 76px 0 56px;
+        border-bottom: 1px solid var(--rule);
+      }
+      .docket {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12.5px;
+        letter-spacing: 0.08em;
+        color: var(--amber);
+        text-transform: uppercase;
+        margin: 0 0 18px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .docket::before {
+        content: "§";
+        font-size: 15px;
+      }
+      h1.name {
+        font-family: "Fraunces", serif;
+        font-weight: 500;
+        font-size: clamp(2.4rem, 5vw, 3.6rem);
+        line-height: 1.05;
+        margin: 0 0 14px;
+        color: var(--ink);
+      }
+      .role-line {
+        font-size: 1.15rem;
+        color: var(--ink-soft);
+        max-width: 60ch;
+        margin: 0 0 28px;
+      }
+      .status-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .badge {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11.5px;
+        letter-spacing: 0.04em;
+        padding: 6px 12px;
+        border: 1px solid var(--rule-strong);
+        border-radius: 2px;
+        color: var(--ink);
+        background: var(--paper-raised);
+        text-transform: uppercase;
+      }
+      .badge.active {
+        border-color: var(--sage-deep);
+        color: var(--sage-deep);
+        background: #eef2ec;
+      }
+      .hero-links {
+        margin-top: 26px;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .hero-links a {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14.5px;
+        color: var(--ink);
+        border-bottom: 2px solid var(--amber);
+        padding-bottom: 2px;
+      }
+      .hero-links a:hover {
+        color: var(--sage-deep);
+        border-color: var(--sage-deep);
+      } /* ---------- About ---------- */
+      section.about {
+        padding: 52px 0;
+        border-bottom: 1px solid var(--rule);
+      }
+      .eyebrow {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        color: var(--ink-soft);
+        text-transform: uppercase;
+        margin: 0 0 14px;
+      }
+      .about p {
+        max-width: 68ch;
+        font-size: 1.02rem;
+        color: var(--ink-soft);
+      }
+      .about p strong {
+        color: var(--ink);
+      } /* ---------- Skills strip ---------- */
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 22px;
+      }
+      .skill-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        padding: 5px 11px;
+        background: var(--paper-raised);
+        border: 1px solid var(--rule);
+        border-radius: 2px;
+        color: var(--ink-soft);
+      } /* ---------- Projects / Docket timeline ---------- */
+      section.projects {
+        padding: 56px 0 64px;
+      }
+      .docket-list {
+        position: relative;
+        margin-top: 36px;
+        padding-left: 52px;
+      }
+      .docket-list::before {
+        content: "";
+        position: absolute;
+        left: 19px;
+        top: 6px;
+        bottom: 6px;
+        width: 1px;
+        background: var(--rule-strong);
+        opacity: 0.25;
+      }
+      .entry {
+        position: relative;
+        padding-bottom: 40px;
+      }
+      .entry:last-child {
+        padding-bottom: 0;
+      }
+      .entry .seal {
+        position: absolute;
+        left: -52px;
+        top: 0;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 1.5px solid var(--rule-strong);
+        background: var(--paper);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .entry.done .seal {
+        background: var(--sage-deep);
+        border-color: var(--sage-deep);
+        color: #fff;
+      }
+      .entry.exam .seal {
+        border-style: dashed;
+        font-size: 16px;
+      }
+      .entry-head {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 6px;
+      }
+      .entry-head h3 {
+        font-family: "Fraunces", serif;
+        font-weight: 500;
+        font-size: 1.28rem;
+        margin: 0;
+        color: var(--ink);
+      }
+      .domain-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        color: var(--amber);
+        text-transform: uppercase;
+      }
+      .entry p.desc {
+        margin: 6px 0 10px;
+        color: var(--ink-soft);
+        max-width: 64ch;
+      }
+      .entry .artifact-link {
+        display: inline-block;
+        font-size: 13.5px;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--sage-deep);
+        border-bottom: 1px solid var(--sage-deep);
+      }
+      .entry .artifact-link:hover {
+        color: var(--amber);
+        border-color: var(--amber);
+      } /* ---------- Contact ---------- */
+      section.contact {
+        padding: 56px 0 64px;
+        border-bottom: 1px solid var(--rule);
+      }
+      .contact-intro {
+        max-width: 60ch;
+        color: var(--ink-soft);
+        font-size: 1.02rem;
+        margin: 10px 0 30px;
+      }
+      .contact-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .contact-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 16px 20px;
+        background: var(--paper-raised);
+        border: 1px solid var(--rule-strong);
+        border-radius: 2px;
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 600;
+        font-size: 14.5px;
+        transition:
+          border-color 0.15s,
+          color 0.15s,
+          background 0.15s;
+        flex: 1 1 220px;
+      }
+      .contact-card:hover {
+        border-color: var(--sage-deep);
+        color: var(--sage-deep);
+        background: #eef2ec;
+      }
+      .contact-card svg {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        stroke: currentColor;
+      } /* ---------- Footer ---------- */
+      footer {
+        border-top: 1px solid var(--rule);
+        padding: 34px 0 46px;
+      }
+      footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      footer p {
+        margin: 0;
+        font-size: 13px;
+        color: var(--ink-soft);
+      }
+      footer .foot-links {
+        display: flex;
+        gap: 18px;
+      }
+      footer a {
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--ink);
+      }
+      footer a:hover {
+        color: var(--sage-deep);
+      }
+      @media (max-width: 640px) {
+        .nav ul {
+          gap: 16px;
+        }
+        .docket-list {
+          padding-left: 40px;
+        }
+        .entry .seal {
+          left: -40px;
+          width: 30px;
+          height: 30px;
+          font-size: 10.5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site">
+      <div class="nav">
+        <span class="mark">Magda Andrade / Privacy &amp; Compliance</span>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
-
-      <div class="entry">
-        <div class="seal">02</div>
-        <div class="entry-head">
-          <h3>Mock HIPAA Compliance Checklist</h3>
-          <span class="domain-tag">Domain II · Jul 11–17</span>
+    </header>
+    <section class="hero">
+      <div class="wrap">
+        <p class="docket">Case File No. 2026-001 — Career Upgrade Record</p>
+        <h1 class="name">Magda Andrade</h1>
+        <p class="role-line">
+          Privacy &amp; compliance professional, building applied expertise in U.S. privacy
+          law through the CIPP/US certification.
+        </p>
+        <div class="status-row">
+          <span class="badge active">CIPP/US — In Progress</span>
+          <span class="badge">6-Week Study Track</span>
         </div>
-        <p class="desc">A practical compliance checklist built for a fictional healthcare startup, mirroring real consulting and compliance-analyst work product.</p>
-        <a class="artifact-link" href="#" target="_blank" rel="noopener">View artifact →</a>
-      </div>
-
-      <div class="entry">
-        <div class="seal">03</div>
-        <div class="entry-head">
-          <h3>E-Discovery &amp; Data Request Workflow</h3>
-          <span class="domain-tag">Domain III · Jul 18–24</span>
+        <div class="hero-links">
+          <a href="#projects">View the docket ↓</a>
+          <a href="mailto:magda.k.andrade@outlook.com">Email me</a>
+          <a href="https://www.linkedin.com/in/mandrade123/" target="_blank" rel="noopener"
+            >LinkedIn</a
+          >
         </div>
-        <p class="desc">A flowchart showing how a company should respond to a law enforcement data request, from initial receipt through legal review and production.</p>
-        <a class="artifact-link" href="#" target="_blank" rel="noopener">View artifact →</a>
       </div>
-
-      <div class="entry">
-        <div class="seal">04</div>
-        <div class="entry-head">
-          <h3>Workplace Privacy Policy Template</h3>
-          <span class="domain-tag">Domain IV · Jul 25–31</span>
+    </section>
+    <section class="about" id="about">
+      <div class="wrap">
+        <p class="eyebrow">About</p>
+        <p>
+          <strong>I am deepening my expertise in privacy and compliance</strong> as the next step in
+          my career. I have 15+ years of experience in international technology policy and
+          regulatory affairs advising governments and industry on the EU's landmark digital
+          regulations — the Digital Services Act (DSA), Digital Markets Act (DMA), AI Act, and GDPR.
+          Rather than just studying for the CIPP/US exam, I am running a 6-week accelerated study
+          plan and building a working portfolio as I go. Every domain of the exam paired with a
+          practical artifact: comparison matrices, mock compliance checklists, policy templates, and
+          process diagrams that mirror the kind of work a privacy analyst or compliance associate
+          produces day to day.
+        </p>
+        <p>
+          This site is that portfolio. Each entry below corresponds to one week of study and one
+          applied deliverable.
+        </p>
+        <div class="skills">
+          <span class="skill-tag">U.S. Federal Privacy Law</span>
+          <span class="skill-tag">State Privacy Statutes</span> <span class="skill-tag">HIPAA</span>
+          <span class="skill-tag">GLBA / FCRA</span> <span class="skill-tag">CCPA / CPRA</span>
+          <span class="skill-tag">Policy Drafting</span>
+          <span class="skill-tag">Compliance Documentation</span>
+          <span class="skill-tag">Regulatory Research</span>
         </div>
-        <p class="desc">A sample BYOD and employee monitoring policy — a directly usable writing sample for compliance and HR-adjacent roles.</p>
-        <a class="artifact-link" href="#" target="_blank" rel="noopener">View artifact →</a>
       </div>
-
-      <div class="entry">
-        <div class="seal">05</div>
-        <div class="entry-head">
-          <h3>State Privacy Law Comparison Tracker</h3>
-          <span class="domain-tag">Domain V · Aug 1–7</span>
+    </section>
+    <section class="projects" id="projects">
+      <div class="wrap">
+        <p class="eyebrow">Weekly Projects</p>
+        <h2
+          style="
+            font-family: &quot;Fraunces&quot;, serif;
+            font-weight: 500;
+            font-size: 1.9rem;
+            margin: 8px 0 0;
+          "
+        >
+          Six weeks, six applied artifacts — then the exam
+        </h2>
+        <div class="docket-list">
+          <div class="entry done">
+            <div class="seal">01</div>
+            <div class="entry-head">
+              <h3>U.S. Privacy Regulatory Landscape</h3>
+              <span class="domain-tag">Domain I + II · Jul 4–10</span>
+            </div>
+            <p class="desc">
+              A one-page map of the fragmented U.S. privacy enforcement system, plus a comparison
+              matrix of federal sectoral laws (GLBA, FCRA, COPPA, CAN-SPAM) — scope, covered
+              entities, obligations, and enforcement.
+            </p>
+            <a class="artifact-link" href="#" target="_blank" rel="noopener">View artifact →</a>
+          </div>
+          <div class="entry">
+            <div class="seal">02</div>
+            <div class="entry-head">
+              <h3>Mock HIPAA Compliance Checklist</h3>
+              <span class="domain-tag">Domain II · Jul 11–17</span>
+            </div>
+            <p class="desc">
+              A practical compliance checklist built for a fictional healthcare startup, mirroring
+              real consulting and compliance-analyst work product.
+            </p>
+            <a class="artifact-link" href="#" target="_blank" rel="noopener">View artifact →</a>
+          </div>
+          <div class="entry">
+            <div class="seal">03</div>
+            <div class="entry-head">
+              <h3>E-Discovery &amp; Data Request Workflow</h3>
+              <span class="domain-tag">Domain III · Jul 18–24</span>
+            </div>
+            <p class="desc">
+              A flowchart showing how a company should respond to a law enforcement data request,
+              from initial receipt through legal review and production.
+            </p>
+            <a class="artifact-link" href="#" target="_blank" rel="noopener">View artifact →</a>
+          </div>
+          <div class="entry">
+            <div class="seal">04</div>
+            <div class="entry-head">
+              <h3>Workplace Privacy Policy Template</h3>
+              <span class="domain-tag">Domain IV · Jul 25–31</span>
+            </div>
+            <p class="desc">
+              A sample BYOD and employee monitoring policy — a directly usable writing sample for
+              compliance and HR-adjacent roles.
+            </p>
+            <a class="artifact-link" href="#" target="_blank" rel="noopener">View artifact →</a>
+          </div>
+          <div class="entry">
+            <div class="seal">05</div>
+            <div class="entry-head">
+              <h3>State Privacy Law Comparison Tracker</h3>
+              <span class="domain-tag">Domain V · Aug 1–7</span>
+            </div>
+            <p class="desc">
+              A comparison of comprehensive state privacy laws (CCPA/CPRA, VCDPA, and others) across
+              applicability thresholds, consumer rights, and enforcement — the fastest-growing and
+              most heavily weighted domain on the exam.
+            </p>
+            <a class="artifact-link" href="#" target="_blank" rel="noopener">View artifact →</a>
+          </div>
+          <div class="entry">
+            <div class="seal">06</div>
+            <div class="entry-head">
+              <h3>Capstone: Privacy Compliance Toolkit</h3>
+              <span class="domain-tag">Review + Capstone · Aug 8–14</span>
+            </div>
+            <p class="desc">
+              A Data Breach Response Playbook (state notification timelines + HIPAA/GLBA overlay),
+              plus all prior artifacts bundled into a single reference toolkit with a short
+              introduction on what each demonstrates.
+            </p>
+            <a class="artifact-link" href="#" target="_blank" rel="noopener">View artifact →</a>
+          </div>
+          <div class="entry exam">
+            <div class="seal"></div>
+            <div class="entry-head">
+              <h3>Exam Window</h3>
+              <span class="domain-tag">Aug 15–31</span>
+            </div>
+            <p class="desc">
+              Light review only — flashcards and weak-domain spot checks. Exam scheduled and sat
+              before the September 1, 2026 Body of Knowledge update.
+            </p>
+          </div>
         </div>
-        <p class="desc">A comparison of comprehensive state privacy laws (CCPA/CPRA, VCDPA, and others) across applicability thresholds, consumer rights, and enforcement — the fastest-growing and most heavily weighted domain on the exam.</p>
-        <a class="artifact-link" href="#" target="_blank" rel="noopener">View artifact →</a>
       </div>
-
-      <div class="entry">
-        <div class="seal">06</div>
-        <div class="entry-head">
-          <h3>Capstone: Privacy Compliance Toolkit</h3>
-          <span class="domain-tag">Review + Capstone · Aug 8–14</span>
+    </section>
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <p class="eyebrow">Contact</p>
+        <h2
+          style="
+            font-family: &quot;Fraunces&quot;, serif;
+            font-weight: 500;
+            font-size: 1.9rem;
+            margin: 8px 0 0;
+          "
+        >
+          Get in touch
+        </h2>
+        <p class="contact-intro">
+          Open to privacy analyst and compliance associate roles — if you're hiring, reviewing my
+          portfolio, or just want to connect, I'd love to hear from you.
+        </p>
+        <div class="contact-grid">
+          <a class="contact-card" href="mailto:magda.k.andrade@outlook.com">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M4 4h16v16H4z" />
+              <path d="M22 6l-10 7L2 6" />
+            </svg>
+            <span>Email</span>
+          </a>
+          <a
+            class="contact-card"
+            href="https://www.linkedin.com/in/mandrade123/"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-13h4v1.5A6 6 0 0116 8z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            <span>LinkedIn</span>
+          </a>
         </div>
-        <p class="desc">A Data Breach Response Playbook (state notification timelines + HIPAA/GLBA overlay), plus all prior artifacts bundled into a single reference toolkit with a short introduction on what each demonstrates.</p>
-        <a class="artifact-link" href="#" target="_blank" rel="noopener">View artifact →</a>
       </div>
-
-      <div class="entry exam">
-        <div class="seal">📅</div>
-        <div class="entry-head">
-          <h3>Exam Window</h3>
-          <span class="domain-tag">Aug 15–31</span>
-        </div>
-        <p class="desc">Light review only — flashcards and weak-domain spot checks. Exam scheduled and sat before the September 1, 2026 Body of Knowledge update.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<footer id="contact">
-  <div class="wrap">
-    <p>© 2026 Magda Andrade — Privacy &amp; Compliance Portfolio</p>
-    <div class="foot-links">
-      <a href="mailto:magda.k.andrade@outlook.com">Email</a>
-      <a href="https://www.linkedin.com/in/mandrade123/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/mandrade-123" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </div>
-</footer>
-
-</body>
+    </section>
+    <footer>
+      <div class="wrap"><p>© 2026 Magda Andrade — Privacy &amp; Compliance Portfolio</p></div>
+    </footer>
+  </body>
 </html>
