@@ -285,6 +285,76 @@
       .entry .artifact-link:hover {
         color: var(--amber);
         border-color: var(--amber);
+      } /* ---------- Publications ---------- */
+      section.publications {
+        padding: 56px 0 64px;
+        border-bottom: 1px solid var(--rule);
+      }
+      .pub-list {
+        list-style: none;
+        margin: 32px 0 0;
+        padding: 0;
+      }
+      .pub-entry {
+        padding: 22px 0;
+        border-top: 1px solid var(--rule);
+        display: flex;
+        gap: 20px;
+        align-items: baseline;
+        flex-wrap: wrap;
+      }
+      .pub-entry:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+      .pub-index {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        color: var(--ink-soft);
+        opacity: 0.55;
+        flex-shrink: 0;
+        width: 20px;
+      }
+      .pub-body {
+        flex: 1;
+        min-width: 240px;
+      }
+      .pub-meta {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11.5px;
+        letter-spacing: 0.06em;
+        color: var(--amber);
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 6px;
+      }
+      .pub-body h3 {
+        font-family: "Fraunces", serif;
+        font-weight: 500;
+        font-size: 1.22rem;
+        margin: 0 0 8px;
+        line-height: 1.3;
+      }
+      .pub-body h3 a {
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+      }
+      .pub-body h3 a:hover {
+        color: var(--sage-deep);
+        border-color: var(--sage-deep);
+      }
+      .pub-body p {
+        margin: 0;
+        color: var(--ink-soft);
+        max-width: 64ch;
+        font-size: 0.98rem;
+      }
+      .pub-empty-note {
+        margin-top: 18px;
+        font-size: 0.92rem;
+        color: var(--ink-soft);
+        font-style: italic;
       } /* ---------- Contact ---------- */
       section.contact {
         padding: 56px 0 64px;
@@ -373,6 +443,12 @@
           height: 30px;
           font-size: 10.5px;
         }
+        .pub-entry {
+          gap: 10px;
+        }
+        .pub-index {
+          width: 16px;
+        }
       }
     </style>
   </head>
@@ -383,6 +459,7 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#publications">Publications</a></li>
         </ul>
       </div>
     </header>
@@ -533,6 +610,40 @@
             </p>
           </div>
         </div>
+      </div>
+    </section>
+    <section class="publications" id="publications">
+      <div class="wrap">
+        <p class="eyebrow">Publications</p>
+        <h2
+          style="
+            font-family: &quot;Fraunces&quot;, serif;
+            font-weight: 500;
+            font-size: 1.9rem;
+            margin: 8px 0 0;
+          "
+        >
+          Writing &amp; commentary
+        </h2>
+        <ul class="pub-list">
+          <li class="pub-entry">
+            <span class="pub-index">01</span>
+            <div class="pub-body">
+              <span class="pub-meta">2026 · AI &amp; Society</span>
+              <h3>
+                <a href="#" target="_blank" rel="noopener"
+                  >AI Copyright Governance in the United States (U.S.): Lessons from the European
+                  Union (EU)</a
+                >
+              </h3>
+              <p>
+                A comparative look at how U.S. and EU approaches to AI and copyright are diverging —
+                and what U.S. policy could take from the EU's more codified framework.
+              </p>
+            </div>
+          </li>
+        </ul>
+        <p class="pub-empty-note">More writing added as it's published.</p>
       </div>
     </section>
     <section class="contact" id="contact">
